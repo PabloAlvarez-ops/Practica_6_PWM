@@ -34,7 +34,7 @@
         .filter((w) => (w !== ""))         // remove empty string elem
 
     
-    // TODO -  First functionality implemented
+    // TODO - First functionality implemented
     
     const word_array = (text) => 
       clean_string(text) // clean text
@@ -89,7 +89,9 @@
       view.innerHTML = result;
     };
 
-    // TODO
+    
+    // TODO - Second functionality implemented
+    
     const word_index = () => {
       let {text, view} = getIO();
       let ordered_word = 
@@ -138,10 +140,28 @@
       view.innerHTML = result;
     };
 
-    // TODO
+    // TODO - Third functionality implemented
+    
     const search_words = () => {
+      let {text, view, search} = getIO();
+      
+      let searched_words = 
+        word_array(text)
+          .map(el => el.toLowerCase()) //convert words to lower
+          .filter(el => el.includes(search)) // Determines if the word array includes the letter introduced
+          .sort(); // ordered the words (alphabetically) that contain the letter introduced
+
+    
+       let result = `Hay ${searched_words.length} ocurrencias de la palabra '${search}'.\n\n`
+      result +=
+        repetitions(searched_words) // repetitions of the word introduced
+        .map(el => `${el.n} repeticiones de: ${el.s}`)
+        .join("\n");
+    
+      view.innerHTML = result;
     };
 
+    
     const search_sentences = () => {
       let {text, view, search} = getIO();
 
