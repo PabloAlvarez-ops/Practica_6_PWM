@@ -1,24 +1,16 @@
 html, body{
-  color: #BFC9CA;
-  background: #212F3C;
+  color: #4FA095;
+  background:#154360;
+  font-family: Helvetica;
+
 }
 
 h1{
-  color:  #2980B9;
+  color:#4FA095;
 }
 
-h2{
-  color: #16A085;
-}
-
-h3{
-  color: lightblue;
-}
 
 button{
-  background:#F5CBA7;
+  background:#4FA095;
 }
 
-/* https://webgradients.com/ */
-
-/* center titles */
