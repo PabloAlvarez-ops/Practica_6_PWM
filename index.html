@@ -34,7 +34,13 @@
         .filter((w) => (w !== ""))         // remove empty string elem
 
     // TODO
-    const word_array = (text) => []
+    const word_array = (text) => 
+      clean_string(text) // clean text
+        .replace(/[.:,;?!0-9 \s]+/g, "*")  
+        .split("*") // generate array                       
+        .filter((w) => (w!==""))
+
+
 
     const sentence_array = (text) =>
       clean_string(text)
@@ -59,7 +65,7 @@
       let {text, view} = getIO();
 
       let result = `Caracteres: ${char_array(text).length}\n`;
-      result += `Palabras: ${text.split(" ").length}\n`; //TO DO
+      result += `Palabras: ${word_array(text).length}\n`; //Another way using text.split(" ").length
       result += `Frases: ${sentence_array(text).length}\n`;
       result += `Lineas: ${text.split("\n").length}\n`;
 
