@@ -33,13 +33,14 @@
         .split("")                       // generate array
         .filter((w) => (w !== ""))         // remove empty string elem
 
-    // TODO
+    
+    // TODO -  First functionality implemented
+    
     const word_array = (text) => 
       clean_string(text) // clean text
         .replace(/[.:,;?!0-9 \s]+/g, "*")  
         .split("*") // generate array                       
         .filter((w) => (w!==""))
-
 
 
     const sentence_array = (text) =>
@@ -90,7 +91,18 @@
 
     // TODO
     const word_index = () => {
-    };
+      let {text, view} = getIO();
+      let ordered_word = 
+        word_array(text) // separate a cleaned text into words
+        .map(el => el.toLowerCase()) //convert words to lower
+        .sort(); // list the words alphabetically
+      let result = 
+        repetitions(ordered_word)
+        .map(el => `${el.s}: ${el.n}`)
+        .join("\n");
+      
+      view.innerHTML = result;
+  };
 
     const sentence_index = () => {
       let {text, view} = getIO();
